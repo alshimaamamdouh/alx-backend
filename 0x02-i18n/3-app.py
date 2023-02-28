@@ -11,22 +11,23 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
-app = Flask(__name__)
-app.config.from_object(Config)
-app.url_map.strict_slashes = False
-babel = Babel(app)
-
-
-@babel.localeselector # Deprecated decorator.
 def get_locale():
     """ Gets clients locale/region"""
     return request.accept_languages.best_match(Config.LANGUAGES)
 
 
+app = Flask(__name__)
+app.config.from_object(Config)
+app.url_map.strict_slashes = False
+babel = Babel()
+# Fix for @babel.localeselector decorator
+babel.init_app(app, locale_selector=get_locale)
+
+
 @app.route("/", strict_slashes=False)
 def home():
     """ Home route """
-    return render_template("2-index.html")
+    return render_template("3-index.html")
 
 
 if __name__ == "__main__":
