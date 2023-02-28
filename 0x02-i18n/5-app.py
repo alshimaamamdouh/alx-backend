@@ -41,11 +41,13 @@ def home():
     return render_template("3-index.html")
 
 
-def get_user(id) -> Dict[str, str]:
+def get_user() -> Dict[str, str]:
     """ Search for user in user database based
         on request id
     """
-    return (users.get(id, None))
+    user_id = request.args.get('login_as', None)
+    if user_id:
+        return (users.get(user_id, None))
 
 
 @app.before_request
@@ -53,11 +55,7 @@ def before_request():
     """ Do this before serving the
         request
     """
-    params = request.args
-    if params and params.get('login_as', None):
-        g.user = get_user(params.get('login_as'))
-        return
-    g.user = None
+    g.user = get_user()
 
 
 if __name__ == "__main__":
