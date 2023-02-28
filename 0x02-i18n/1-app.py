@@ -12,6 +12,7 @@ class Config(object):
 
 
 app.config["BABEL_DEFAULT_LOCALE"] = Config.LANGUAGES[0]
+app.config["BABEL_DEFAULT_TIMEZONE"] = "UTC"
 
 
 @app.route("/", strict_slashes=False)
