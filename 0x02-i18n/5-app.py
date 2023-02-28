@@ -24,7 +24,6 @@ users = {
 }
 
 
-
 @babel.localeselector
 def get_locale():
     """ Gets client's locale/region
@@ -40,7 +39,6 @@ def get_locale():
 def home():
     """ Home route """
     return render_template("3-index.html")
-
 
 
 def get_user(id) -> Dict[str, str]:
@@ -60,6 +58,7 @@ def before_request():
         g.user = get_user(params.get('login_as'))
         return
     g.user = None
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
