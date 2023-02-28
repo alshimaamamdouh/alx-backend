@@ -17,7 +17,7 @@ app.url_map.strict_slashes = False
 babel = Babel(app)
 
 
-@babel.localeselector # Deprecated decorator.
+@babel.localeselector
 def get_locale():
     """ Gets clients locale/region"""
     return request.accept_languages.best_match(Config.LANGUAGES)
