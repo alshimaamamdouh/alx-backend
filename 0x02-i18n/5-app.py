@@ -2,7 +2,7 @@
 """ Flask application module """
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
-
+from typing import Dict, Optional
 
 class Config(object):
     """ Flask app configuration class """
@@ -40,18 +40,18 @@ def home():
     return render_template("3-index.html")
 
 
-def get_user():
+def get_user() -> Optional[Dict]:
     """ Search for user in user database based
         on request id
     """
-    user_id = request.args.get('login_as', None)
+    user_id = request.args.get('login_as')
     if user_id:
-        return users.get(user_id, None)
+        return users.get(int(user_id), None)
     return None
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     """ Do this before serving the
         request
     """
