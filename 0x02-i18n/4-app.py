@@ -22,9 +22,9 @@ def get_locale():
     """ Gets client's locale/region
         Checks if locale has been passed in the parameters
     """
-    params = request.args
-    if params and params.get("locale", None):
-        return params.get("locale")
+    locale = request.args('locale', '')
+    if locale in app.config["LANGUAGES"]:
+        return locale
     return request.accept_languages.best_match(Config.LANGUAGES)
 
 
