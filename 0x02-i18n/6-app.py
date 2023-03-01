@@ -29,9 +29,20 @@ def get_locale():
     """ Gets client's locale/region
         Checks if locale has been passed in the parameters
     """
-    params = request.args
-    if params and params.get("locale", None):
-        return params.get("locale")
+    locale = request.args("locale", "")
+    if locale in app.config["LANGUAGES"]:
+        return locale
+
+    # user not logged in
+    if not g.user:
+        return request.accept_languages.best_match(Config.LANGUAGES)
+
+    locale = g.user.get('locale', '')
+    # user logged in and language preference is supported
+    if locale in app.config["LANGUAGES"]:
+        return locale
+
+    # user logged in but language preference not supported
     return request.accept_languages.best_match(Config.LANGUAGES)
 
 
@@ -56,7 +67,7 @@ def before_request() -> None:
 @app.route("/")
 def home():
     """ Home route """
-    return render_template("5-index.html")
+    return render_template("6-index.html")
 
 
 if __name__ == "__main__":
