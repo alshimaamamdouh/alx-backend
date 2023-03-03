@@ -81,6 +81,15 @@ users = {
 | `logged_in_as` | `"You are logged in as %(username)s."` | `"Vous êtes connecté en tant que %(username)s."` |
 | `not_logged_in` | `"You are not logged in."` | `"Vous n'êtes pas connecté."` |
 
+- Visiting `http://127.0.0.1:5000/` in your browser should display this:
+
+<p align="center"><img src="assets/task_5_not_logged_in.png" alt="task_5_not_logged_in.png"></p>
+
+- Visiting `http://127.0.0.1:5000/?login_as=2` in your browser should display this: 
+
+<p align="center"><img src="assets/task_5_logged_in.png" alt="task_5_logged_in.png"></p>
+
+
 - Files: 
     - [5-app.py](5-app.py)
     - [templates/5-index.html](templates/5-index.html)
@@ -93,6 +102,9 @@ users = {
     - Locale from request header
     - Default locale
 - Test by logging in as different users
+
+<p align="center"><img src="assets/task_6_get_locale.png" alt="task_6_get_locale.png"></p>
+
 - Files:
     - [6-app.py](6-app.py)
     - [templates/6-index.html](templates/6-index.html)
@@ -123,6 +135,12 @@ Jan 21, 2020, 5:55:39 AM or 21 janv. 2020 à 05:56:28
 | msgid | English | French |
 | ----- | ------- | ------ |
 | `current_time_is` | `"The current time is %(current_time)s."` | `"Nous sommes le %(current_time)s."` |
+
+- Displaying the time in French looks like this:
+<p align="center"><img src="assets/task_8_fr.png"></p>
+
+- Displaying the time in English looks like this:
+<p align="center"><img src="assets/task_8_en.png"></p>
 
 - Files:
     - [app.py](app.py)
