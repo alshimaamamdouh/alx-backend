@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
 from typing import Dict, Optional
+from pytz import exceptions as pytz_exceptions, timezone
 
 
 class Config(object):
@@ -25,7 +26,7 @@ users = {
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """ Gets client's locale/region
         Checks if locale has been passed in the url
         parameters and user locale preferences
@@ -45,6 +46,28 @@ def get_locale():
 
     # user logged in but language preference not supported
     return request.accept_languages.best_match(Config.LANGUAGES)
+
+
+@babel.timezoneselector
+def get_timezone() -> Optional[str]:
+    """ Check for client's timezone based on
+        url parameters and client's preferences
+    """
+    # Get timezone from URL query parameters.
+    tz = request.args.get("timezone", '')
+
+    # Get timezone from logged in user if timezone
+    # is not in URL parameters.
+    if not tz and g.user:
+        tz = str(g.user.get('timezone', ''))
+
+    # Check if timezone is valid
+    try:
+        _ = timezone(tz)
+    except pytz_exceptions.UnknownTimeZoneError as e:
+        return
+    else:
+        return tz
 
 
 def get_user() -> Optional[Dict]:
