@@ -30,7 +30,7 @@ class Server:
             - Return:
                 - list of dataset for specified page
         """
-        assert type(page) is int and type(page_size) is int
+        assert type(page) == int and type(page_size) == int
         assert page > 0 and page_size > 0
         start, end = index_range(page, page_size)
         dataset = self.dataset()
