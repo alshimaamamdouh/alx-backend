@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-LIFO caching module
+LRU caching module
 """
 from base_caching import BaseCaching
 from typing import Any, Optional
 
 
 class LRUCache(BaseCaching):
-    """ LIFO cache class
+    """ LRU cache class
     """
     def put(self, key: Any, item: Any) -> None:
         """ Adds data to cache based on LRU policy
@@ -26,6 +26,7 @@ class LRUCache(BaseCaching):
 
     def get(self, key: Any) -> Optional[Any]:
         """ Gets cache data associated with given key
+            and updates dict in accordance to LRU policy
             - Args:
                 - key to look for
             - Return:
