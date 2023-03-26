@@ -47,6 +47,7 @@ class Server:
             - Return:
                 - dictionary of:
                     - index: index of first item in the current pages
+                    - next_index: index of next piece of data
                     - data: actual page of the dataset
                     - page_size: current page size
         """
