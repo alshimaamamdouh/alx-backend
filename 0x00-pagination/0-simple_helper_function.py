@@ -6,10 +6,10 @@ from typing import Tuple
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """ Gets start and end indices of dataset
-        Args:
+        - Args:
             - page: page to look for information
             - page_size: size of each page
-        Return:
+        - Return:
             - tuple of start index and end index of each page
     """
     start_idx = (page - 1) * page_size
