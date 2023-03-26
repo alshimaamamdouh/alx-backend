@@ -23,7 +23,7 @@ class FIFOCache(BaseCaching):
             cache_keys = list(self.cache_data.keys())
             key_to_remove = cache_keys[0]
             self.cache_data.pop(key_to_remove)
-            print(f'DISCARD {key_to_remove}')
+            print(f'DISCARD: {key_to_remove}')
         self.cache_data.update(new_cache_data)
 
     def get(self, key: Any) -> Optional[Any]:
