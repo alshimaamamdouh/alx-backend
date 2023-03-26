@@ -5,7 +5,7 @@ Deletion-resilient hypermedia pagination
 
 import csv
 import math
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Optional
 
 
 class Server:
@@ -51,11 +51,9 @@ class Server:
                     - data: actual page of the dataset
                     - page_size: current page size
         """
-        if index is None:
-            index = 0
         indexed_data = self.indexed_dataset()
         indexed_data_length = len(indexed_data)
-        assert index < indexed_data_length and index >= 0
+        assert index is not None and index < indexed_data_length and index >= 0
         truncated_data: List[List] = []
         next_index = index
         while len(truncated_data) < page_size and \
