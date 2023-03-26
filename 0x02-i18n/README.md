@@ -1,4 +1,4 @@
-# I18n and L10n
+# 0x02. i18n
 
 ## About
 * Internationalization (I18n) and Localization (L10n)
