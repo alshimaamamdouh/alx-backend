@@ -55,7 +55,6 @@ class Server:
             next_page = page + 1
         if page > 1:
             prev_page = page - 1
-
         page_data = self.get_page(page, page_size)
         response = {'page_size': len(page_data),
                     'page': page,
