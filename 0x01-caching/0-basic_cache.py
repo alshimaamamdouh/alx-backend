@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 from base_caching import BaseCaching
-from typing import Any, Optional
 
 
 class BasicCache(BaseCaching):
     """ Basic caching class
     """
-    def put(self, key: Any, item: Any) -> None:
+    def put(self, key, item):
         """ Adds data to cache
             - Args:
                 - key: new entry's key
@@ -15,7 +14,7 @@ class BasicCache(BaseCaching):
         if key and item:
             self.cache_data.update({key: item})
 
-    def get(self, key: Any) -> Optional[Any]:
+    def get(self, key):
         """ Gets cache data associated with given key
             - Args:
                 - key to look for
