@@ -35,9 +35,8 @@ class Server:
         assert type(page_size) is int and page_size > 0
         start, end = index_range(page, page_size)
         dataset = self.dataset()
-        try:
-            dataset = dataset[start: end]
-        except IndexError:
+        dataset = dataset[start: end]
+        if len(dataset) < page_size:
             dataset = []
         return dataset
 
