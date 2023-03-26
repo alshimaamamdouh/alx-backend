@@ -9,7 +9,9 @@
     - LFU
 ## Tasks
 0. Basic dictionary class `BasicCache` that extends from `BaseCaching`
-    - File: [0-basic_cache.py](0-basic_cache.py)
+    - Files:
+        - [0-basic_cache.py](0-basic_cache.py)
+        - [base_caching.py](base_caching.py)
 
 1. Class `FIFOCache` that implements FIFO cache replacement policy.
     - File: `[1-fifo_cache.py](1-fifo_cache.py)
