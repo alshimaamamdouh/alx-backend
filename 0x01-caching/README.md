@@ -19,7 +19,7 @@
 2. Class `LIFOCache` that implements LIFO cache replacement policy.
     - [2-lifo_cache.py](2-lifo_cache.py)
 
-3, Class `LRUCache` that implements LRU cache replacement policy.
+3. Class `LRUCache` that implements LRU cache replacement policy.
     - [3-lru_cache.py](3-lru_cache.py)
 
 4. Class `MRUCache` that implements MRU cache replacement policy.
