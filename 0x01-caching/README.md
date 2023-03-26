@@ -17,13 +17,13 @@
     - File: `[1-fifo_cache.py](1-fifo_cache.py)
 
 2. Class `LIFOCache` that implements LIFO cache replacement policy.
-    - [2-lifo_cache.py](2-lifo_cache.py)
+    - File: [2-lifo_cache.py](2-lifo_cache.py)
 
 3. Class `LRUCache` that implements LRU cache replacement policy.
-    - [3-lru_cache.py](3-lru_cache.py)
+    - File: [3-lru_cache.py](3-lru_cache.py)
 
 4. Class `MRUCache` that implements MRU cache replacement policy.
-    - [4-mru_cache.py](4-mru_cache.py)
+    - File: [4-mru_cache.py](4-mru_cache.py)
 
 5. Class `LRUCache` that implements FIFO cache replacement policy.
-    - [100-lfu_cache.py](100-lfu_cache.py)
+    - File: [100-lfu_cache.py](100-lfu_cache.py)
