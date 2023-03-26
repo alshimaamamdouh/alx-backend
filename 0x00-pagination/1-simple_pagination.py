@@ -38,7 +38,7 @@ class Server:
         try:
             dataset = dataset[start: end]
         except IndexError:
-            dataset = dataset[start: len(dataset)]
+            dataset = []
         return dataset
 
 
