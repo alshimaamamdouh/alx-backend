@@ -11,11 +11,11 @@ redisClient.on('connect', () => {
 });
 
 redisClient.on('message', (channel, message) => {
-    console.log(message);
-    if (message === 'KILL_SERVER') {
-      redisClient.unsubscribe(channel);
-      redisClient.quit();
-    }
+  console.log(message);
+  if (message === 'KILL_SERVER') {
+    redisClient.unsubscribe(channel);
+    redisClient.quit();
+  }
 });
 
 redisClient.subscribe('holberton school channel');
