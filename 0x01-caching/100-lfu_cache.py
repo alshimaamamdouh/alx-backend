@@ -33,8 +33,8 @@ class LFUCache(BaseCaching):
             print(f'DISCARD: {key_to_remove}')
         self.cache_data.update(new_cache_data)
         counter.update({key: counter.get(key, 0) + 1})
-        self.counter = dict(sorted(counter.items(),
-                                   key=lambda x: (x[1], x[0])))
+        counter = dict(sorted(counter.items(),
+                              key=lambda x: (x[1], x[0])))
 
     def get(self, key: Any) -> Optional[Any]:
         """ Gets cache data associated with given key
@@ -48,6 +48,6 @@ class LFUCache(BaseCaching):
         counter = self.counter
         if cache_item:
             counter.update({key: counter.get(key) + 1})
-            self.counter = dict(sorted(counter.items(),
-                                       key=lambda x: (x[1], x[0])))
+            counter = dict(sorted(counter.items(),
+                                  key=lambda x: (x[1], x[0])))
         return cache_item
