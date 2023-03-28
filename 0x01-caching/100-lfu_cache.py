@@ -23,8 +23,8 @@ class LFUCache(BaseCaching):
         """
         if not key or not item:
             return
-        new_cache_data = {key: item}
         counter = self.counter
+        new_cache_data = {key: item}
         old_cache_data = self.cache_data.get(key)
         if len(self.cache_data) == self.MAX_ITEMS and not old_cache_data:
             key_to_remove = list(counter.keys())[0]
