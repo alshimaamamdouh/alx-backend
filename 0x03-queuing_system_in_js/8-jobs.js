@@ -3,7 +3,7 @@
  * @param {Array} jobs - list of object containing job data
  * @param {import('kue').Queue} queue - queue object
  */
-export default function createPushNotifications(jobs, queue) {
+export default function createPushNotificationsJobs(jobs, queue) {
   if (!Array.isArray(jobs)) throw new Error('Jobs is not an array');
   jobs.forEach((jobData) => {
     const job = queue.create('push_notification_code_3', jobData);
