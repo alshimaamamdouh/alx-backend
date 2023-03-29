@@ -4,7 +4,6 @@ import { spy } from 'sinon';
 import createPushNotifications from './8-jobs';
 
 // Job  creation unit tests
-
 describe('createPushNotifications unit tests', () => {
   const queue = createQueue();
   before(() => {
