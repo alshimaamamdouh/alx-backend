@@ -10,7 +10,7 @@ const HOST = '127.0.0.1';
 const PORT = 1245;
 let reservationEnabled = true;
 
-// Redis operation methods
+// Redis client ops
 /**
  * Sets the number of available seats from Redis
  * @param {number} number -
@@ -29,7 +29,7 @@ async function getCurrentAvailableSeats() {
   return Number(availableSeats);
 }
 
-// Express server routes
+// Express app routes
 /* Gets number of available seats */
 app.get('/available_seats', async (req, res) => {
   const availableSeats = await getCurrentAvailableSeats();

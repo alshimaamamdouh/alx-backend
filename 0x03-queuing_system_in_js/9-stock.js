@@ -55,7 +55,7 @@ async function getCurrentReservedStockById(itemId) {
   return value;
 }
 
-// App routes
+// Express app routes
 /* Get list of all products */
 app.get('/list_products', (_req, res) => {
   res.send(listProducts.map((product) => ({
