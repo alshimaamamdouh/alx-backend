@@ -32,6 +32,6 @@ describe('createPushNotifications unit tests', () => {
   });
   it('adds throws an error when the wrong job data type is passed', () => {
     const jobs = { phoneNumber: '499494', message: 'Your one time pin is 1234' };
-    expect(createPushNotificationsJobs.bind(jobs, queue)).to.throw('Jobs is not an array');
+    expect(() => createPushNotificationsJobs(jobs, queue)).to.throw('Jobs is not an array');
   });
 });
